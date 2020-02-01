@@ -149,7 +149,7 @@ class CookieTokenAuthenticate extends BaseAuthenticate
      */
     public function authenticateAttemptedThisSession(ServerRequest $request)
     {
-        $session = $request->session();
+        $session = $request->getSession();
         return (bool)$session->read('CookieTokenAuth.attempted');
     }
 
@@ -160,7 +160,7 @@ class CookieTokenAuthenticate extends BaseAuthenticate
      */
     private function setAuthenticateAttemptedThisSession(ServerRequest $request)
     {
-        $session = $request->session();
+        $session = $request->getSession();
         $session->write('CookieTokenAuth.attempted', true);
     }
 
